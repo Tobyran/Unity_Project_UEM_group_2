@@ -33,7 +33,7 @@ public class PlayerMovment : MonoBehaviour
             animator.SetBool("isMoving", false);
         }
 
-        Debug.Log(animator.GetBool("isMoving") + ", " + playerMovement.z);
+// Debug.Log(animator.GetBool("isMoving") + ", " + playerMovement.z);
     }
 
     private void MovePlayer()

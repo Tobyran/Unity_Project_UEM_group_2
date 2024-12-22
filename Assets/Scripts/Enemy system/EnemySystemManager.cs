@@ -11,6 +11,7 @@ public class EnemySystemManager : MonoBehaviour
     [SerializeField] private Transform enemyPool;
     [SerializeField] private float timeBetweenEnemies;
     [SerializeField] private float enemyOffset;
+    [SerializeField] private int maxActiveEnemies = 5; 
 
     private void Start()
     {
@@ -46,9 +47,12 @@ public class EnemySystemManager : MonoBehaviour
 
     private IEnumerator SpawnEnemiesCoroutine()
     {
-        while (true) 
+        while (true)
         {
-            SpawnEnemy();
+            if (CountActiveEnemies() < maxActiveEnemies)
+            {
+                SpawnEnemy();
+            }
             yield return new WaitForSeconds(timeBetweenEnemies);
         }
     }
@@ -59,5 +63,18 @@ public class EnemySystemManager : MonoBehaviour
 
         int randomInt = Random.Range(0, positions.Length);
         enemy.transform.position = positions[randomInt].position + Vector3.left * enemyOffset;
+    }
+
+    private int CountActiveEnemies()
+    {
+        int activeCount = 0;
+        foreach (GameObject enemy in enemyList)
+        {
+            if (enemy.activeSelf)
+            {
+                activeCount++;
+            }
+        }
+        return activeCount;
     }
 }
