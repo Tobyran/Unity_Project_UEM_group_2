@@ -7,7 +7,8 @@ public class FlyingEnemy : MonoBehaviour
     [SerializeField] private float attackDistance = 2f;
     [SerializeField] private float retreatDistance = 5f;
     [SerializeField] private float attackCooldown = 2f;
-    [SerializeField] private int damage = 10;
+    [SerializeField] private int damage = 5;
+    public BarraVida logicaBarraVidaJugador;
 
     private GameObject player;
     private bool canAttack = true;
@@ -91,5 +92,13 @@ public class FlyingEnemy : MonoBehaviour
 
         isRetreating = false;
         Debug.Log("Finished retreating.");
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.CompareTag("Player"))
+        {
+            logicaBarraVidaJugador.vidaActual -= damage;
+        }
     }
 }

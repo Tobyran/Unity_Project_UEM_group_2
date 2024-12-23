@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BarraVida : MonoBehaviour
@@ -22,6 +23,7 @@ public class BarraVida : MonoBehaviour
         if (vidaActual <= 0)
         {
             gameObject.SetActive(false);
+            SceneManager.LoadScene(2);
         }
     }
 

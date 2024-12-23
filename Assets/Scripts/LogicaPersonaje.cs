@@ -52,7 +52,8 @@ public class LogicaPersonaje : MonoBehaviour
     {
         if (collision.transform.CompareTag("Bullet"))
         {
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
         }
     }
 

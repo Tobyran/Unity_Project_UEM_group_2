@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 6193120857646447567}
   m_Layer: 0
   m_Name: FLYING ENEMY
-  m_TagString: FlyingEnemy
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +92,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -230,6 +230,7 @@ MonoBehaviour:
   retreatDistance: 10
   attackCooldown: 1
   damage: 10
+  logicaBarraVidaJugador: {fileID: 0}
 --- !u!114 &6193120857646447567
 MonoBehaviour:
   m_ObjectHideFlags: 0
