@@ -15,6 +15,7 @@ public class Puntaje : MonoBehaviour
     {
         barraVida = player.GetComponent<BarraVida>();
         puntaje = 0;
+        puntajeMaximo = PlayerPrefs.GetInt("PuntajeMaximo");
     }
 
 
@@ -30,6 +31,11 @@ public class Puntaje : MonoBehaviour
             {
                 puntaje += bonificacion;
                 contador = 0;
+            }
+            if (puntaje > puntajeMaximo)
+            {
+                puntajeMaximo = puntaje;
+                PlayerPrefs.SetInt("PuntajeMaximo", puntajeMaximo);
             }
         }
 
