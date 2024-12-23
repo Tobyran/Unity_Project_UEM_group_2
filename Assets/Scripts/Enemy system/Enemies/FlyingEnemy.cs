@@ -60,6 +60,7 @@ public class FlyingEnemy : MonoBehaviour
             Vector3 direction = (player.transform.position - transform.position).normalized;
             direction.y = 0;
             transform.position += direction * moveSpeed * Time.deltaTime;
+            transform.LookAt(player.transform.position);
             yield return null;
         }
     }

@@ -45,7 +45,7 @@
                     "name": "Crouch",
                     "type": "Button",
                     "id": "27c5f898-bc57-4ee1-8800-db469aca5fe3",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -85,6 +85,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Orbitar",
+                    "type": "Value",
+                    "id": "7bd805ea-40f7-43b7-9912-a269f42f88d9",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -470,6 +479,28 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c99418ff-2300-4cfd-bceb-69abdbd2ceb8",
+                    "path": "<Mouse>/position/x",
+                    "interactions": "",
+                    "processors": "Normalize(min=-1,max=1)",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Orbitar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cdf84127-26a0-4a17-88a2-6e7c18746e50",
+                    "path": "<Mouse>/position/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Orbitar",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
