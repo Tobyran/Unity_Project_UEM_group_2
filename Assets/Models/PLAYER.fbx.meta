@@ -3,7 +3,12 @@ guid: eac4eaa17c023a94ea1517cf895f7f31
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MAT_PLAYER
+    second: {fileID: 2100000, guid: a73f491fabe182042b5a3374b246cb5c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -92,7 +97,7 @@ ModelImporter:
       name: HURT
       takeName: HURT
       internalID: -8611750986175366078
-      firstFrame: 0
+      firstFrame: 1
       lastFrame: 150
       wrapMode: 0
       orientationOffsetY: 0
@@ -121,7 +126,7 @@ ModelImporter:
       name: DIE
       takeName: DIE
       internalID: 6843862513270306658
-      firstFrame: 0
+      firstFrame: 1
       lastFrame: 345
       wrapMode: 0
       orientationOffsetY: 0

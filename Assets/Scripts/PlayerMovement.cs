@@ -1,61 +1,84 @@
 using UnityEngine;
+using UnityEngine.UIElements;
+//using UnityEngine.Windows;
+using UnityEngine.InputSystem;
 
 public class PlayerMovment : MonoBehaviour
 {
-    private Vector3 playerMovement;
-    private Rigidbody rb;
-
-    public Animator animator;
-    public float movSpeed, turnSpeed;
-    public bool grounded = false;
-
+    private Vector2 playerMovement;
+    
+    private Animator animatorPlayer;
+    public float movSpeed;
+    public bool grounded = false, seMueve = false, isAlive;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        isAlive = true;
+        animatorPlayer = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerMovement = new Vector3(Input.GetAxis("Horizontal"),0.0f, Input.GetAxis("Vertical"));
+        if (isAlive) { 
+            float anguloY = Camera.main.transform.eulerAngles.y;
 
-        transform.Rotate(Vector3.up * playerMovement.x * turnSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Euler(0, anguloY, 0);
+            if (grounded) { 
+            transform.position += transform.forward * playerMovement.y * movSpeed * Time.deltaTime;            
+            }
+            else
+            {                
+                transform.position += transform.position * 0;
+            }
+        }
+        else{
+            print("Dying!");
+            Death();
+        }
 
-        if (playerMovement.z != 0 && grounded)
-        {           
-            MovePlayer();                
+    }
+
+    public void MovePlayer(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            animatorPlayer.SetBool("isMoving", true);
+            playerMovement = context.ReadValue<Vector2>();
         }
         else
         {
-            rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y, 0);
-            animator.SetBool("isMoving", false);
+            animatorPlayer.SetBool("isMoving", false);
+            playerMovement = Vector2.zero;
         }
-
-        Debug.Log(animator.GetBool("isMoving") + ", " + playerMovement.z);
-    }
-
-    private void MovePlayer()
-    {
-        animator.SetBool("isMoving", true);
-
-        Vector3 movVector = transform.TransformDirection(playerMovement) * movSpeed;        
-        rb.linearVelocity = new Vector3(movVector.x, rb.linearVelocity.y, movVector.z); 
     }
 
     private void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.tag == "Floor"){
-            grounded = true;            
-        }
-        else {            
-            grounded = false;            
-        }        
+            grounded = true;
+        }   
     }
 
     private void OnCollisionExit(Collision other)
     {
-        grounded = false;
+        if(other.gameObject.tag == "Floor")
+        {
+            grounded = false;
+        }  
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Hazards")
+        {
+            isAlive = false;
+        }
+    }
+
+    private void Death()
+    {
+        animatorPlayer.SetBool("isDead", true);
     }
 }
