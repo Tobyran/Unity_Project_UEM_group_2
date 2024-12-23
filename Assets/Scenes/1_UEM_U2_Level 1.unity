@@ -2744,7 +2744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   margen: {x: 0, y: 105, z: -150}
-  objetivo: {fileID: 0}
+  objetivo: {fileID: 2592341261152854345}
   sensitividad: 1
   minAnguloVerticaI: 0
   maxAnguIoVerticaI: 60
