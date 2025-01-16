@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI; //Nuevo
 
 public class FlyingEnemy : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class FlyingEnemy : MonoBehaviour
     private Vector3 retreatTarget;
 
     private float fixedHeight;
+
+    public NavMeshAgent agente; //Nuevo
 
     private void OnEnable()
     {
@@ -56,12 +59,14 @@ public class FlyingEnemy : MonoBehaviour
 
     private IEnumerator MoveTowardsPlayer()
     {
+        
         while (Vector3.Distance(transform.position, player.transform.position) > attackDistance)
         {
-            Vector3 direction = (player.transform.position - transform.position).normalized;
+            /*Vector3 direction = (player.transform.position - transform.position).normalized;
             direction.y = 0;
             transform.position += direction * moveSpeed * Time.deltaTime;
-            transform.LookAt(player.transform.position);
+            transform.LookAt(player.transform.position);*/ //Muteado para usar el navmesh
+            agente.SetDestination(player.transform.position); //Nuevo
             yield return null;
         }
     }

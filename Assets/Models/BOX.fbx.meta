@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 37c892c3754d58941ae9afdb18a27555
+guid: ed0425e5ed8768648baa6e3bd19c77be
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,18 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: MAT.SIDE
-    second: {fileID: 2100000, guid: 669159f9d92dda74988052691b57b679, type: 2}
+      name: M_BODY
+    second: {fileID: 2100000, guid: 1cab6604ab4440a4d87bd6dea0bd1fc6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: MAT.TOP
-    second: {fileID: 2100000, guid: 6add4848fe7072c48a6ca87ce66cd4dd, type: 2}
+      name: M_CORNER
+    second: {fileID: 2100000, guid: 8d385a1f7aecb0f4487075c897e64865, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: MAT.WATER
-    second: {fileID: 2100000, guid: 30eae00ea74d092498371b6687939f38, type: 2}
+      name: M_LIGHT
+    second: {fileID: 2100000, guid: af0e250a46951b14d9565efe6511d381, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

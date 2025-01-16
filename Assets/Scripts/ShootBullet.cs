@@ -30,12 +30,7 @@ public class ShootBullet : MonoBehaviour
 
     void Disparar()
     {
-        Vector3 posPlayer = player.localPosition;
-
-        print(posPlayer);
-
-        GameObject balaNueva = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);        
-        balaNueva.transform.LookAt(posPlayer); 
-        
+        GameObject balaNueva = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
+        balaNueva.transform.LookAt(player.position);
     }
 }
