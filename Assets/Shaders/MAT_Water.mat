@@ -66,7 +66,7 @@ Material:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
     - _altura_olas: 0.2
-    - _velocidad_olas: 0.1
+    - _velocidad_olas: 0.2
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1

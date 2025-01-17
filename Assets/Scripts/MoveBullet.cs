@@ -21,7 +21,7 @@ public class MoveBullet : MonoBehaviour
         if (!hit) { 
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
-        else
+        else if (hit || count >= maxLife) 
         {
             transform.Translate(Vector3.zero);
             bullet.SetActive(false);
@@ -32,12 +32,8 @@ public class MoveBullet : MonoBehaviour
             }
 
             Destroy(gameObject, 1.0f);
-        }        
+        }       
 
-        if (count >= maxLife)
-        {
-            Destroy(gameObject);
-        }
     }
     private void OnTriggerEnter(Collider other)
     {
