@@ -156,7 +156,7 @@ MonoBehaviour:
   countAnimation: 0
   attackfunction: 0.5
   timeRangeAnimation: 1.6
-  bullet: {fileID: 2622233673902609177, guid: 7c31540985a5bb449b79f53fb8b7466d, type: 3}
+  bullet: {fileID: 2622233673902609177, guid: 1c61b0cdf04ff4941b68a89511fadf2e, type: 3}
   player: {fileID: 0}
   bulletSpawnPoint: {fileID: 271399241175313775}
 --- !u!1001 &1316448454689827371

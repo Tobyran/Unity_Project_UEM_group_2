@@ -31,6 +31,6 @@ public class ShootBullet : MonoBehaviour
     void Disparar()
     {
         GameObject balaNueva = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
-        balaNueva.transform.LookAt(player.position);
+        balaNueva.transform.LookAt(new Vector3(player.position.x, player.position.y + 0.7f, player.position.z));
     }
 }
