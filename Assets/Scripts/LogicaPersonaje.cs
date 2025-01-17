@@ -39,13 +39,16 @@ public class LogicaPersonaje : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q) && !estoyAtacando)
         {
             animator.SetTrigger("Golpeo");
-            Atacar();
+            Atacar();                     
         }
 
         if (estoyAtacando) {
+            
             attackCooldown += Time.deltaTime;
+
             if(attackCooldown > maxWaitCooldown)
             {
+                attackCooldown = 0;
                 DejeDeGolpear();
             }
         }

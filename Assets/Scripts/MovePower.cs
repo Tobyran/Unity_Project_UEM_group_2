@@ -20,17 +20,15 @@ public class MovePower : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other != null)
+        if (other.transform.CompareTag("Bullet"))
         {
-            if (other.transform.CompareTag("Enemy"))
-            {
-                Destroy(other);
-                hit = true;                
-            }
-            else if (!hit && !other.transform.CompareTag("Enemy") && !other.transform.CompareTag("Player"))
-            {
-                hit = true;
-            }
+            print("Enemigo golpeado!");
+            Destroy(other);
+            hit = true;                
+        }
+        else if (!hit && !other.transform.CompareTag("Bullet") && !other.transform.CompareTag("Player"))
+        {
+            hit = true;
         }
     }
 }

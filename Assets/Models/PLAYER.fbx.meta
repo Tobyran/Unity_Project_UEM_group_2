@@ -189,8 +189,8 @@ ModelImporter:
       name: ATTACK
       takeName: ATTACK
       internalID: -5869465931270112493
-      firstFrame: 0
-      lastFrame: 48
+      firstFrame: 10
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
